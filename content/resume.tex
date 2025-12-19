@@ -1,0 +1,375 @@
+%-------------------------
+% Resume in Latex
+% Author : Harshibar
+% Based off of: https://github.com/jakeryang/resume
+% License : MIT
+%------------------------
+\documentclass[letterpaper,10pt]{article}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{moresize}
+% \input{glyphtounicode}
+%adding hyperlink
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=RoyalPurple,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+% custom underilne
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+% % Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+\newcommand{\resumeSubheadingExtraSpace}[6]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+      \textit{\small#5} & \textit{\small#6} \\[1.25ex]
+    \end{tabular*} 
+}
+% Conditioanl for 1 page 
+%----------- In your preamble -----------
+\newif\ifonepage % Defines the conditional switch
+%--- Now, choose one of the following to turn it ON or OFF ---
+\onepagetrue      % UNCOMMENT this line to INCLUDE the conditional content (for a one-page resume)
+% \onepagefalse     % UNCOMMENT this line to HIDE the conditional content
+%-------------------------
+% Custom commands
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      % top row of resume entry
+      \textbf{#1} & {\small #2} \\
+      % second row of resume entry
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}
+    \vspace{-12pt}
+}
+\newcommand{\resumeSubheadingOneLine}[2]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      % top row of resume entry
+      \textbf{#1} & \textit{$|$\hspace{4pt}\small #2} \\ 
+    \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-10pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+% CHANGED default leftmargin  0.15 in
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-12pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0em, 
+% label={-}
+]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+\color{text-grey}
+
+%-------------------------------------------
+%%  RESUME STARTS HERE  %%
+
+\begin{document}
+%----------HEADING----------
+\begin{center}
+    
+{\huge \textbf{Ishana Garuda} \\ \vspace{2pt}}
+{
+\small United States Citizen $\; | \; $ 
+Morrisville, NC $\; | \; $  
+Open to Relocating and Remote work
+\\}
+{
+\small
+\texttt{+}1 (919) 564\texttt{-}9740 $\; | \; $
+\href{mailto:ishana.rama@gmail.com}{\underline{ishana.rama@gmail.com}} $|$ 
+\href{https://linkedin.com/in/ishana-garuda}{\underline{linkedin.com/in/ishana-garuda}} $|$
+\href{https://github.com/ishana23g}{\underline{github.com/ishana23g}}
+}
+
+\end{center}
+
+\vspace{-12pt}
+
+%-----------SUMMARY (TARGETED)-----------
+\section{Summary}
+\resumeItemListStart
+    \resumeItem{Computational researcher with 3+ years of ML and GPU acceleration focus with a B.S. in Computational Modeling and Data Analytics, seeking machine learning engineer or research scientist roles focused on efficient AI systems and practical applications}
+    \resumeItem{Technical expertise in LLM fine-tuning (LoRA, prompt-tuning), Parallel GPU programming (CUDA) and CPU programming (OpenMP), with strong communication skills to help explain complex topics to students to presenting findings and results to diverse stakeholders}
+    \resumeItem{Demonstrated ability to bridge technical depth from optimizing CUDA kernels to creating interactive demos for non-technical users, all while maintaining rigorous experimental standards}
+    \resumeItem{Dean's List every semester, ASA DataFest Best Methodology, and consistent contributions to interdisciplinary research teams}
+\resumeItemListEnd
+\vspace{-8pt}
+
+  
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+\begin{itemize}[leftmargin=0in, label={}]
+\small{
+\item \textbf{Languages:} C, C++, CUDA, 
+% OpenCL, SYCL, AMD-HIP, 
+Python, Java,  MPI, OpenMP, R, MATLAB, C\#, \LaTeX, Markdown \\ \vspace{-3pt} 
+\item \textbf{Data Science \& AI/ML:} NLP, LLMs, Deep Learning, Statistical Modeling, Quantum ML, Prompt Engineering, RAG \ \vspace{-6pt}
+\item \textbf{HPC \& Systems Opt.:} Performance Engineering, Parallel Computing, GPU Programming, Systems Optimization \ \vspace{-6pt}
+\item \textbf{Tools \& Platforms:} Google Cloud, Linux/Unix, Git, 
+% TensorFlow, 
+Scikit-Learn, PyTorch, HuggingFace, OpenAI API, Makefiles, Valgrind, Tableau, Jupyter Notebooks, VS Code, R Studio, SSH, UML, JSON, CSV, MS Office, Nsight, Qiskit
+% }
+% \item \textbf{Languages:} C, CUDA, OpenCL, SYCL, AMD-HIP, Python, Java, UML, MPI, OpenMP, R, MATLAB, \LaTeX, C++, Markdown \ \vspace{-6pt}
+% \item \textbf{Data Science \& Machine Learning:} NLP, LLMs, Deep Learning, Statistical Modeling, Quantum ML, Prompt Engineering, RAG \ \vspace{-6pt}
+% \item \textbf{High Performance Computing: } Performance Engineering, Parallel Computing, GPU Programming, Systems Optimization  \ \vspace{-6pt}
+% \item \textbf{Tools:} Google Cloud, Linux/ UNIX, Git, TensorFlow, Scikit-Learn, PyTorch, HuggingFace, OpenAI API, Makefiles, Valgrind, Tableau, Jupyter Notebooks, Visual Studio Code, R Studio, SSH, Qiskit, JSON, CSV, MS Excel, MS Word, Nsight
+}
+\end{itemize}
+\vspace{-12pt}
+
+%-----------RESEARCH EXPERIENCE-----------
+\section{Professional Experience}
+\resumeSubHeadingListStart
+    \resumeSubheading
+     {Research Assistant}{Jan. 2025 -- Present}
+     {Dr. Jason Wilson, Virginia Tech CMDA Department}{Blacksburg, VA}
+        \resumeItemListStart
+        \resumeItem{Developing data reduction methods using clustering (K-Means) and classification (kNN) that enable efficient analysis of large datasets by identifying representative patterns without sacrificing accuracy}
+        \resumeItem{Re-engineering algorithms from CPU parallelization (OpenMP) to GPU parallelization (CUDA),  achieving 8.5x speedup (60+ seconds to 7 seconds) on NVIDIA V100 for time-sensitive research applications}
+        \resumeItem{Conducting performance analysis across GPU/CPU architectures to identify bottlenecks in kernel launch, memory transfer, and occupancy; documenting findings for future researchers}
+        \resumeItem{Collaborating with faculty through weekly meetings to optimize strategies, troubleshoot using Nsight profiling tools, and create reproducible benchmarks for the HPC community}
+    \resumeItemListEnd
+    
+    \resumeSubheading 
+    {Summer Research Intern}{Apr. 2024 -- Jul. 2024}
+    {Dr. Chreston Miller, Virginia Tech Libraries \& History Department}{Blacksburg, VA}
+   \resumeItemListStart
+       \resumeItem{Frameworked computational methods comparing historical legal documents' discussions of enslaved vs. white individuals, revealing systematic language patterns difficult to detect through traditional NLP approaches}
+       \resumeItem{Implemented LLMs via Vertex AI to modernize archaic 17th century text, preserving historical context for downstream analysis}
+       \resumeItem{Applied embedding models (NVIDIA, Alibaba, Google) on bi-grams and tri-grams with HDBSCAN, UMAP, and c-TF-IDF to identify recurring themes across thousands of legal cases}
+       \resumeItem{Created interactive visualizations (Plotly, Ipysigma) and static plots (Seaborn, Matplotlib) that transformed raw data into actionable insights for faculty research}
+       \resumeItem{Iterated on research questions and visualization designs based on historian feedback to effectively communicate to technical and non-technical audiences}
+    \resumeItemListEnd  
+    
+    \resumeSubheading 
+     {Undergraduate Researcher (Independent Study)}
+     {Aug. 2022 -- Oct. 2024}{Dr. Chreston Miller, Virginia Tech Libraries}{Blacksburg, VA}
+    \resumeItemListStart
+        \resumeItem{Analyzed 15M tweets from Internet Archives to investigate political polarization and discourse evolution using NLP techniques (BERTopic topic modeling, roBERTa sentiment analysis)}
+        \resumeItem{Validated findings via (A/B) permutation testing in Pandas to ensure statistical significance across different sample populations}
+        \resumeItem{Presented methodologies to interdisciplinary faculty, translating transformer-based models and clustering algorithms into accessible insights for humanities researchers}
+        \resumeItem{Maintained Git version-controlled Python scripts and detailed research logs to ensure reproducibility throughout the project}
+    \resumeItemListEnd
+    \resumeSubheading
+    {Undergraduate Learning Assistant CMDA 3634}{Jan. 2025 -- May 2025}
+    {Virginia Tech CMDA Department}{Blacksburg, VA}
+    \resumeItemListStart
+        \resumeItem{Created C/OpenMP/CUDA API reference sheet covering parallel computing concepts, reducing confusion and providing quick syntax examples for 40+ students}
+        \resumeItem{Held office hours to explain concepts like thread synchronization, shared memory, race conditions, and memory coalescing, adapting to individual learning styles}
+        \resumeItem{Facilitated group study sessions encouraging peer learning and collaborative debugging in a supportive environment}
+    \resumeItemListEnd
+    \resumeSubheading 
+    {Academic Tutor \& Peer Wellness Mentor}{Aug. 2023 -- May 2025}
+    {Virginia Tech APIDA + Center}{Blacksburg, VA}
+    \resumeItemListStart
+        \resumeItem{Tutored calculus, linear algebra, statistics, data structures, and algorithms in individual and group sessions}
+        \resumeItem{Created onboarding documents standardizing training processes and reducing ramp-up time for new workers}
+        \resumeItem{Mentored STEM students on academic support, university resources, and career pathways in computational fields}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+    \resumeSubheadingOneLine
+    {CS 4824 - Parameter Efficient LLM Fine-Tuning}
+    {PyTorch, PEFT, Fine Tuning, OpenAI, Hugging Face}
+    \resumeItemListStart
+        \resumeItem{Prototyped Adaptive Sparse Fusion (ASF) framework using PyTorch/Hugging Face to dynamically fuse LoRA and Prompt-Tuning for resource-constrained LLM fine-tuning}
+        \resumeItem{Conducted comparative analysis on GLUE benchmarks (MRPC, SST-2) diagnosing bottlenecks and evaluating efficiency-accuracy trade-offs}
+        \resumeItem{Integrated mixed-precision training (FP16) and explored Soft-MoE and Expert-Choice routing to improve computational efficiency}
+    \resumeItemListEnd
+    \resumeSubheadingOneLine
+    {CMDA 4634 - \href{https://github.com/ishana23g/heat_eq}{3D Heat Equation Simulation}}{C, CUDA, OpenGL, Nsight} 
+    \resumeItemListStart  
+        \resumeItem{Optimized custom CUDA kernels for real-time 3D heat diffusion, achieving 87\% memory throughput and 98\% GPU occupancy through careful memory patterns}
+        \resumeItem{Implemented CUDA-OpenGL interop for real-time volumetric rendering at 60+ FPS, transforming intensive simulations into interactive applications}
+        \resumeItem{Profiled using Nsight Compute/Systems to eliminate bottlenecks and maximize parallel efficiency across GPU threads}
+    \resumeItemListEnd
+    \resumeSubheadingOneLine
+    {CAPSTONE - Named Entity Standardization}{Python, Streamlit, OpenAI, RAG, Plotly, IPySigma}
+    \resumeItemListStart
+        \resumeItem{Led development of LLM-based standardization system using OpenAI API and RAG, deployed as Streamlit web app solving inconsistent data entry problems}
+        \resumeItem{Built NLP pipeline with data cleaning, semantic similarity search via vector embeddings, and interactive visualizations for user review/approval}
+        \resumeItem{Presented live demo to faculty and student panel, effectively communicating technical implementation and business value to non-technical stakeholders}
+    \resumeItemListEnd
+
+    \resumeSubheadingOneLine
+    {PHYS 4684 - \href{https://github.com/ishana23g/qmlvcml}{Quantum vs. Classical ML Package}}
+    {Python, OOP, PyTest, Qiskit, SVM} 
+    \resumeItemListStart
+        \resumeItem{Engineered a modular Python package comparing Variational Quantum Classifiers and Classical SVMs, implementing 20+ functions utilizing strict Object-Oriented Programming (OOP) principles}
+        \resumeItem{Enforced production-grade reliability by developing comprehensive test suites, achieving 100\% code coverage across all class methods, and creating detailed technical documentation for package reproducibility}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+%-------------------------------------------
+
+
+%-----------EDUCATION-----------
+\section {Education}
+\resumeSubHeadingListStart
+    \resumeSubheadingExtraSpace
+        {Virginia Tech}{Blacksburg, VA} 
+        {B.S. in Computational Modeling and Data Analytics} {Aug. 2021 -- May 2025} 
+        {Minors in Computer Science, Math, Stat, Quantum Information Technology}{In-Major GPA: 3.98 $|$ Cumulative GPA: 3.91} 
+        {\textbf{Relevant Coursework:} Mathematical Modeling, Data Analytics and Machine Learning, Software Design, Fourier Series \& Partial Differential Equations, Quantum Computing, Applied Bayesian Statistics, Experimental Design, Linear Algebra, Multivariable Calculus, Probability \& Statistics}\\       
+\resumeSubHeadingListEnd
+\ifonepage
+%-----------ACHIEVEMENTS-----------
+\section {Achievements}
+  \resumeSubHeadingListStart
+    \begin{comment}
+     \resumeSubheadingOneLine
+        {\textbf{2022 Fall CMDA Data Competition}} {Dec. 1th 2022 - Dec. 3th 2022}
+        \resumeItemListStart
+    \resumeItem{Achieved second place in the Beginners Section of a competition by analyzing solar panel generation and usage data}
+    \resumeItem{Created visualizations in R and Python to display the generation and usage of solar panels over time and when aggregated by month/year}
+    \resumeItem{Used R to perform statistical tests such as T tests and ANOVA tests, and normalized data using the Central Limit Theorem}
+            %\resumeItem{\textbf{Won 2nd place in the Beginners Section} by analysing solar panel generation and usage data}
+            %\resumeItem{Created \textbf{plots in both R and Python} of the generation and usage over time, and also when aggregated together over months/years}
+            %\resumeItem {Utilized R to do statistical tests such as \textbf{T tests, and ANOVA tests} and normalizing data using \textbf{Central Limit Theorem}}
+    \resumeItemListEnd
+    \end{comment}
+    \resumeSubheadingOneLine
+    {\textbf{2024 Spring ASA DataFest (Python)} - Best Methodology} {Apr. 5th 2022 - Apr. 8th 2024 | Blacksburg, VA}
+    \begin{comment}       
+        \resumeItemListStart
+        \resumeItem{Secured Best Methodology by performing exploratory data analysis on a STEM education dataset for an online textbook, using Python to clean and visualize data with histograms and scatter/line plots, and applying a Random Forest Regression to identify top features for student success}
+            %\resumeItem{Secured Best Methodology for the competition by doing Exploratory Data Analysis for STEM Education dataset for an Online Textbook using Python to clean and visualize our data. Plots included histograms and scatter/line plots to showcase relevant temporal .  linear regressions}
+            %\resumeItem{Utilized a Random Forest Regression Machine Learning Algorithm to show case the top 4 most important features for students to succeed on the online textbook}
+            %\resumeItem{\textbf{Won 2nd place} by cleaning, graphing, and analyzing the data from the video game Elm City Stories to find and understand patterns while playing the game}
+            %\resumeItem{Recognized benefits and determines that can be found for a user while playing then commented where improvements should be made}
+            %\resumeItem {Utilized R to create \textbf{Linear Regressions, Spineplots, Histagrams, Density Scatterplots, and Scatterplots}}
+        \resumeItemListEnd 
+        \end{comment}
+    \vspace{-8pt}
+    \resumeSubheadingOneLine
+    {\textbf{2022 Spring ASA DataFest (R)} - Second Place} {Mar. 25th 2022 - Mar. 27th 2022 | Blacksburg, VA}
+    \begin{comment}    
+        \resumeItemListStart
+        \resumeItem{Achieved second place by cleaning and graphing the video game Elm City Stories data in R, using spine plots, histograms, density scatter plots, and analyzing linear regressions to examine user benefits and potential improvements}
+            %\resumeItem{Secured second place in the competition by cleaning the video game Elm City Stories data, graphing in R with spineplots, histograms, density scatterplots, and scatterplots, finally analyzing linear regressions}
+            %\resumeItem{Examined the benefits and potential improvements for users while playing the game}
+            %\resumeItem{\textbf{Won 2nd place} by cleaning, graphing, and analyzing the data from the video game Elm City Stories to find and understand patterns while playing the game}
+            %\resumeItem{Recognized benefits and determines that can be found for a user while playing then commented where improvements should be made}
+            %\resumeItem {Utilized R to create \textbf{Linear Regressions, Spineplots, Histagrams, Density Scatterplots, and Scatterplots}}
+        \resumeItemListEnd 
+        \end{comment}
+    \vspace{-8pt}
+    
+    
+    \resumeSubheadingOneLine
+    {\textbf{2021 Fall Beginners CMDA Data Competition - First Place}} {Nov. 5th 2021 - Nov. 12th 2021 | Blacksburg, VA}
+    \begin{comment}
+        \resumeItemListStart
+            \resumeItem{Achieved first place in the Beginners Section of the competition by analyzing Microsoft data on broadband availability and usage in the United States at the county level}
+            \resumeItem{Used Jupyter notebooks and tools such as Pandas DataFrames, MatPlotLib, and Plotly to sort and identify trends in the data with plots such as Geographic Maps, Barplots, Scatterplots, Boxplots}
+            % \resumeItem {Presented the results of this analysis on \href{https://github.com/DragonGriffon2003/2021\_DataSoup\_DataFest}{Data Soup}}
+            %\resumeItem {\textbf{Won 1st place in the Beginners Section} by analysing Microsoft Data regarding Broadband Availability and Usage over United States on a county level}
+            %\resumeItem{Worked in Jypyter Notebooks to sort and find trends using \textbf{Panda DataFrames}, \textbf{MatPlotLib}, and \textbf{Plotly}}
+        \resumeItemListEnd       
+    \end{comment}
+    \vspace{-8pt}
+    \resumeSubheadingOneLine
+        {\textbf{Dean's List}} {Fall 2021 - Spring 2025}
+  \resumeSubHeadingListEnd
+% \vspace{-16pt}
+
+
+%-----------VOLUNTEERING-----------
+\section{Volunteering}
+\resumeSubHeadingListStart
+    \resumeSubheadingOneLine
+        {Fall 2025 Datafest Judge}{Nov. 16th 2025 | Remote} 
+        \resumeItemListStart
+        \resumeItem{Judged 7 Advanced Teams and 3 Beginner Teams}
+    \resumeItemListEnd
+    \resumeSubheadingOneLine
+        {Fall 2024 Datafest Judge}{Nov. 16th 2024 | Blacksburg, VA} 
+        \resumeItemListStart
+        \resumeItem{Judged 3 Advanced Teams and 8 Beginner Teams}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+\fi
+\end{document}

@@ -1,0 +1,589 @@
+/* Resume Page Styles - Terminal-inspired aesthetic */
+
+/* Page-level styles */
+.resume-page {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Menlo', monospace;
+}
+
+.resume-container {
+    max-width: 900px;
+    padding: 40px 24px;
+}
+
+.resume-page .main-nav {
+    border-bottom-color: #30363d;
+    margin-bottom: 40px;
+}
+
+.resume-page .main-nav a {
+    color: #58a6ff;
+    font-size: 14px;
+}
+
+.resume-page .main-nav a:hover {
+    color: #79c0ff;
+}
+
+.resume-page .main-nav a.active {
+    color: #f0883e;
+    font-weight: 600;
+}
+
+.resume-page .main-nav .download-link {
+    background: #238636;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.resume-page .main-nav .download-link:hover {
+    background: #2ea043;
+    text-decoration: none;
+}
+
+/* Terminal Block */
+.terminal-block {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.terminal-block.small {
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.terminal-header {
+    background: #21262d;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #28c940; }
+
+.terminal-title {
+    color: #8b949e;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.terminal-content {
+    padding: 20px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+.terminal-content a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.terminal-content a:hover {
+    text-decoration: underline;
+}
+
+.prompt {
+    color: #7ee787;
+    font-weight: bold;
+}
+
+.output-name {
+    color: #f0883e;
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    margin: 4px 0;
+}
+
+.output-tagline {
+    color: #8b949e;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.output {
+    color: #c9d1d9;
+}
+
+.cursor {
+    color: #58a6ff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Resume Sections */
+.resume-section {
+    margin-bottom: 48px;
+}
+
+.section-header {
+    font-size: 14px;
+    color: #8b949e;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #30363d;
+}
+
+.section-header .prompt {
+    margin-right: 8px;
+}
+
+.section-content {
+    padding-left: 0;
+}
+
+/* Summary List */
+.summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summary-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    line-height: 1.7;
+    color: #c9d1d9;
+}
+
+.summary-list li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: #7ee787;
+    font-weight: bold;
+}
+
+.summary-list strong {
+    color: #f0883e;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.skill-category h4 {
+    color: #8b949e;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: #21262d;
+    border: 1px solid #30363d;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+    color: #c9d1d9;
+}
+
+.skill-tag.highlight {
+    background: #1f3a1f;
+    border-color: #238636;
+    color: #7ee787;
+}
+
+/* Experience Items */
+.experience-item {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.exp-header {
+    margin-bottom: 16px;
+}
+
+.exp-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.exp-title strong {
+    color: #f0883e;
+}
+
+.exp-org {
+    color: #8b949e;
+    font-size: 14px;
+}
+
+.exp-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.exp-date {
+    color: #7ee787;
+    font-size: 13px;
+}
+
+.exp-location {
+    color: #8b949e;
+    font-size: 13px;
+}
+
+.exp-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exp-bullets li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    font-size: 14px;
+    color: #c9d1d9;
+}
+
+.exp-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #58a6ff;
+}
+
+.exp-bullets strong {
+    color: #f0883e;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 16px;
+}
+
+.project-item {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-name {
+    color: #f0883e;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+a.project-name:hover {
+    text-decoration: underline;
+    color: #f0883e;
+}
+
+.project-course {
+    color: #8b949e;
+    font-size: 12px;
+    background: #21262d;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.project-tech {
+    color: #7ee787;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.project-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-bullets li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+    line-height: 1.6;
+    font-size: 13px;
+    color: #c9d1d9;
+}
+
+.project-bullets li::before {
+    content: "─";
+    position: absolute;
+    left: 0;
+    color: #30363d;
+}
+
+.project-bullets strong {
+    color: #58a6ff;
+}
+
+/* Education Block */
+.education-block {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.edu-school {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f0883e;
+}
+
+.edu-location {
+    color: #8b949e;
+    font-size: 14px;
+}
+
+.edu-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.edu-degree {
+    color: #c9d1d9;
+    font-size: 16px;
+}
+
+.edu-date {
+    color: #7ee787;
+    font-size: 13px;
+}
+
+.edu-meta {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.edu-meta strong {
+    color: #8b949e;
+}
+
+.edu-coursework {
+    font-size: 13px;
+    color: #8b949e;
+    line-height: 1.6;
+    padding-top: 12px;
+    border-top: 1px solid #30363d;
+}
+
+.edu-coursework strong {
+    color: #7ee787;
+}
+
+/* Awards Table */
+.awards-table {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.award-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 16px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #30363d;
+    align-items: center;
+}
+
+.award-row:last-child {
+    border-bottom: none;
+}
+
+.award-row.highlight-row {
+    background: #1f3a1f;
+}
+
+.award-year {
+    color: #7ee787;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.award-name {
+    color: #c9d1d9;
+    font-size: 14px;
+}
+
+.award-org {
+    color: #8b949e;
+    font-size: 13px;
+}
+
+/* Volunteer List */
+.volunteer-list {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+.volunteer-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+}
+
+.volunteer-role {
+    color: #f0883e;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.volunteer-date {
+    color: #7ee787;
+    font-size: 13px;
+}
+
+.volunteer-desc {
+    color: #8b949e;
+    font-size: 13px;
+    grid-column: 1 / -1;
+}
+
+/* Footer */
+.resume-footer {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid #30363d;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.resume-footer .copyright {
+    color: #8b949e;
+    font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 24px 16px;
+    }
+
+    .output-name {
+        font-size: 22px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .award-row {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .award-org {
+        grid-column: 1 / -1;
+        margin-top: 4px;
+    }
+
+    .exp-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .edu-header,
+    .edu-details {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .resume-page {
+        background: white;
+        color: black;
+    }
+
+    .terminal-block,
+    .experience-item,
+    .project-item,
+    .education-block,
+    .awards-table,
+    .volunteer-list {
+        background: white;
+        border-color: #ddd;
+    }
+
+    .main-nav {
+        display: none;
+    }
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Ishana Garuda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resume-styles.css">
+</head>
+<body class="resume-page">
+    <main class="container resume-container">
+        <nav class="main-nav">
+            <a href="index.html">home</a>
+            <a href="list.html?category=thoughts">thoughts</a>
+            <a href="list.html?category=projects">projects</a>
+            <a href="resume.html" class="active">resume</a>
+            <a href="resume.pdf" class="download-link">↓ pdf</a>
+        </nav>
+
+        <!-- Terminal Header -->
+        <div class="terminal-block">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">ishana@cmda ~ </span>
+            </div>
+            <pre class="terminal-content">
+<span class="prompt">$</span> whoami
+<span class="output-name">Ishana Garuda</span>
+<span class="output-tagline">Computational Researcher & ML Engineer</span>
+
+<span class="prompt">$</span> cat contact.txt
+📍 Morrisville, NC | Open to Remote & Relocation
+📧 <a href="mailto:ishana.rama@gmail.com">ishana.rama@gmail.com</a>
+🔗 <a href="https://linkedin.com/in/ishana-garuda">linkedin.com/in/ishana-garuda</a>
+🐙 <a href="https://github.com/ishana23g">github.com/ishana23g</a>
+            </pre>
+        </div>
+
+        <!-- Summary Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> cat summary.md
+            </div>
+            <div class="section-content">
+                <ul class="summary-list">
+                    <li>Computational researcher with <strong>3+ years</strong> of ML and GPU acceleration focus with a B.S. in Computational Modeling and Data Analytics, seeking machine learning engineer or research scientist roles focused on efficient AI systems</li>
+                    <li>Technical expertise in <strong>LLM fine-tuning</strong> (LoRA, prompt-tuning), <strong>Parallel GPU programming</strong> (CUDA) and CPU programming (OpenMP), with strong communication skills for explaining complex topics</li>
+                    <li>Demonstrated ability to bridge technical depth—from <strong>optimizing CUDA kernels</strong> to creating <strong>interactive demos</strong> for non-technical users—while maintaining rigorous experimental standards</li>
+                    <li><strong>Dean's List every semester</strong>, ASA DataFest Best Methodology, and consistent contributions to interdisciplinary research teams</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> skills --list --format=grid
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">CUDA</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">MPI</span>
+                        <span class="skill-tag">OpenMP</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">LaTeX</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Data Science & AI/ML</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">NLP</span>
+                        <span class="skill-tag highlight">LLMs</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Statistical Modeling</span>
+                        <span class="skill-tag">Quantum ML</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">RAG</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>HPC & Systems</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">GPU Programming</span>
+                        <span class="skill-tag">Parallel Computing</span>
+                        <span class="skill-tag">Performance Engineering</span>
+                        <span class="skill-tag">Systems Optimization</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools & Platforms</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">HuggingFace</span>
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">Linux/Unix</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Nsight</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">Qiskit</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> grep -A 50 "experience" ~/career.md
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Research Assistant</strong>
+                        <span class="exp-org">@ Dr. Jason Wilson, Virginia Tech CMDA Department</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-date">Jan 2025 — Present</span>
+                        <span class="exp-location">Blacksburg, VA</span>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Developing data reduction methods using <strong>clustering (K-Means)</strong> and <strong>classification (kNN)</strong> that enable efficient analysis of large datasets by identifying representative patterns</li>
+                    <li>Re-engineering algorithms from CPU parallelization (OpenMP) to GPU parallelization (CUDA), achieving <strong>8.5x speedup</strong> (60+ seconds → 7 seconds) on NVIDIA V100</li>
+                    <li>Conducting performance analysis across GPU/CPU architectures using <strong>Nsight profiling tools</strong> to identify bottlenecks in kernel launch, memory transfer, and occupancy</li>
+                    <li>Collaborating with faculty to create reproducible benchmarks for the HPC community</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Summer Research Intern</strong>
+                        <span class="exp-org">@ Dr. Chreston Miller, Virginia Tech Libraries & History Department</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-date">Apr 2024 — Jul 2024</span>
+                        <span class="exp-location">Blacksburg, VA</span>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Frameworked computational methods comparing historical legal documents' discussions of enslaved vs. white individuals, revealing systematic language patterns</li>
+                    <li>Implemented <strong>LLMs via Vertex AI</strong> to modernize archaic 17th century text, preserving historical context for downstream analysis</li>
+                    <li>Applied embedding models (NVIDIA, Alibaba, Google) on bi-grams/tri-grams with <strong>HDBSCAN, UMAP, and c-TF-IDF</strong> to identify recurring themes across thousands of legal cases</li>
+                    <li>Created interactive visualizations (<strong>Plotly, Ipysigma</strong>) and static plots (Seaborn, Matplotlib) transforming raw data into actionable insights</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Undergraduate Researcher (Independent Study)</strong>
+                        <span class="exp-org">@ Dr. Chreston Miller, Virginia Tech Libraries</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-date">Aug 2022 — Oct 2024</span>
+                        <span class="exp-location">Blacksburg, VA</span>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Analyzed <strong>15M tweets</strong> from Internet Archives to investigate political polarization using NLP techniques (<strong>BERTopic</strong> topic modeling, <strong>roBERTa</strong> sentiment analysis)</li>
+                    <li>Validated findings via A/B permutation testing in Pandas to ensure statistical significance across different sample populations</li>
+                    <li>Presented methodologies to interdisciplinary faculty, translating transformer-based models into accessible insights for humanities researchers</li>
+                    <li>Maintained Git version-controlled Python scripts and detailed research logs to ensure reproducibility</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Undergraduate Learning Assistant — CMDA 3634</strong>
+                        <span class="exp-org">@ Virginia Tech CMDA Department</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-date">Jan 2025 — May 2025</span>
+                        <span class="exp-location">Blacksburg, VA</span>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Created <strong>C/OpenMP/CUDA API reference sheet</strong> covering parallel computing concepts for 40+ students</li>
+                    <li>Held office hours explaining thread synchronization, shared memory, race conditions, and memory coalescing</li>
+                    <li>Facilitated group study sessions encouraging peer learning and collaborative debugging</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Academic Tutor & Peer Wellness Mentor</strong>
+                        <span class="exp-org">@ Virginia Tech APIDA+ Center</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-date">Aug 2023 — May 2025</span>
+                        <span class="exp-location">Blacksburg, VA</span>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Tutored calculus, linear algebra, statistics, data structures, and algorithms in individual and group sessions</li>
+                    <li>Created onboarding documents standardizing training processes and reducing ramp-up time for new workers</li>
+                    <li>Mentored STEM students on academic support, university resources, and career pathways</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> tree ~/projects --depth=2
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Parameter Efficient LLM Fine-Tuning</span>
+                        <span class="project-course">CS 4824</span>
+                    </div>
+                    <div class="project-tech">PyTorch • PEFT • HuggingFace • OpenAI</div>
+                    <ul class="project-bullets">
+                        <li>Prototyped <strong>Adaptive Sparse Fusion (ASF)</strong> framework to dynamically fuse LoRA and Prompt-Tuning for resource-constrained LLM fine-tuning</li>
+                        <li>Conducted comparative analysis on GLUE benchmarks (MRPC, SST-2) evaluating efficiency-accuracy trade-offs</li>
+                        <li>Integrated <strong>mixed-precision training (FP16)</strong> and explored Soft-MoE and Expert-Choice routing</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <a href="https://github.com/ishana23g/heat_eq" class="project-name">3D Heat Equation Simulation</a>
+                        <span class="project-course">CMDA 4634</span>
+                    </div>
+                    <div class="project-tech">C • CUDA • OpenGL • Nsight</div>
+                    <ul class="project-bullets">
+                        <li>Optimized custom CUDA kernels for real-time 3D heat diffusion, achieving <strong>87% memory throughput</strong> and <strong>98% GPU occupancy</strong></li>
+                        <li>Implemented <strong>CUDA-OpenGL interop</strong> for real-time volumetric rendering at 60+ FPS</li>
+                        <li>Profiled using Nsight Compute/Systems to eliminate bottlenecks and maximize parallel efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Named Entity Standardization</span>
+                        <span class="project-course">Capstone</span>
+                    </div>
+                    <div class="project-tech">Python • Streamlit • OpenAI • RAG • Plotly</div>
+                    <ul class="project-bullets">
+                        <li>Led development of <strong>LLM-based standardization system</strong> using OpenAI API and RAG, deployed as Streamlit web app</li>
+                        <li>Built NLP pipeline with data cleaning, semantic similarity search via vector embeddings, and interactive visualizations</li>
+                        <li>Presented live demo to faculty and student panel, communicating technical implementation to non-technical stakeholders</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <a href="https://github.com/ishana23g/qmlvcml" class="project-name">Quantum vs. Classical ML Package</a>
+                        <span class="project-course">PHYS 4684</span>
+                    </div>
+                    <div class="project-tech">Python • OOP • PyTest • Qiskit • SVM</div>
+                    <ul class="project-bullets">
+                        <li>Engineered modular Python package comparing <strong>Variational Quantum Classifiers</strong> and Classical SVMs with 20+ functions using strict OOP principles</li>
+                        <li>Achieved <strong>100% code coverage</strong> across all class methods with comprehensive test suites and detailed technical documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> cat education.yml
+            </div>
+            <div class="education-block">
+                <div class="edu-header">
+                    <div class="edu-school">Virginia Tech</div>
+                    <div class="edu-location">Blacksburg, VA</div>
+                </div>
+                <div class="edu-details">
+                    <div class="edu-degree">B.S. in Computational Modeling and Data Analytics</div>
+                    <div class="edu-date">Aug 2021 — May 2025</div>
+                </div>
+                <div class="edu-meta">
+                    <div class="edu-minors"><strong>Minors:</strong> Computer Science, Mathematics, Statistics, Quantum Information Technology</div>
+                    <div class="edu-gpa"><strong>GPA:</strong> In-Major 3.98 | Cumulative 3.91</div>
+                </div>
+                <div class="edu-coursework">
+                    <strong>Relevant Coursework:</strong> Mathematical Modeling, Data Analytics and Machine Learning, Software Design, Fourier Series & PDEs, Quantum Computing, Applied Bayesian Statistics, Experimental Design, Linear Algebra, Multivariable Calculus, Probability & Statistics
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> cat ~/awards | column -t
+            </div>
+            <div class="awards-table">
+                <div class="award-row">
+                    <span class="award-year">2024</span>
+                    <span class="award-name">ASA DataFest — Best Methodology</span>
+                    <span class="award-org">Blacksburg, VA</span>
+                </div>
+                <div class="award-row">
+                    <span class="award-year">2022</span>
+                    <span class="award-name">ASA DataFest — Second Place</span>
+                    <span class="award-org">Blacksburg, VA</span>
+                </div>
+                <div class="award-row">
+                    <span class="award-year">2021</span>
+                    <span class="award-name">CMDA Data Competition — First Place (Beginners)</span>
+                    <span class="award-org">Blacksburg, VA</span>
+                </div>
+                <div class="award-row highlight-row">
+                    <span class="award-year">2021–25</span>
+                    <span class="award-name">Dean's List</span>
+                    <span class="award-org">Every Semester</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteering Section -->
+        <section class="resume-section">
+            <div class="section-header">
+                <span class="prompt">$</span> grep "volunteer" ~/activities.log
+            </div>
+            <div class="volunteer-list">
+                <div class="volunteer-item">
+                    <span class="volunteer-role">DataFest Judge</span>
+                    <span class="volunteer-date">Nov 2025 | Nov 2024</span>
+                    <span class="volunteer-desc">Judged 10+ Advanced and Beginner teams on data analysis methodology</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="resume-footer">
+            <div class="terminal-block small">
+                <pre class="terminal-content">
+<span class="prompt">$</span> echo "Thanks for reading!"
+<span class="output">Thanks for reading!</span>
+<span class="prompt">$</span> <span class="cursor">▮</span>
+                </pre>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:ishana.rama@gmail.com">email</a>
+                <a href="https://github.com/ishana23g">github</a>
+                <a href="https://linkedin.com/in/ishana-garuda">linkedin</a>
+            </div>
+            <p class="copyright">© 2024 Ishana Garuda</p>
+        </footer>
+    </main>
+</body>
+</html>

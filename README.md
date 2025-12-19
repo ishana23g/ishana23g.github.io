@@ -5,44 +5,68 @@ A minimal, static personal website for GitHub Pages.
 ## Setup
 
 1. Create a new GitHub repository named `yourusername.github.io`
-2. Upload `index.html` and `styles.css` to the repository
-3. Go to Settings → Pages → Enable GitHub Pages from main branch
+2. Upload the repository contents to the new repo
+3. Go to Settings → Pages → Enable GitHub Pages from the `main` branch
 4. Your site will be live at `https://yourusername.github.io`
 
 ## Customization
 
-### Update Contact Info
-In `index.html`, update the footer links:
-- Email: Line 132
-- GitHub: Line 133
-- LinkedIn: Line 134
+Update contact info and placeholders in `index.html` as needed. Replace the placeholder text wrapped in `[brackets]` with your content.
 
-### Fill in Content
-Replace all placeholder text marked with `[brackets]`:
-- Intro section (lines 14-19)
-- Thoughts (lines 30-42)
-- Projects (lines 46-58)
-- Future ideas (lines 62-68)
-- Reading/watching (lines 72-89)
-- Resume sections (lines 95-123)
+## Adding content (Markdown / text)
 
-### Add Your Resume PDF
-Upload your `resume.pdf` to the repository and the download link will work automatically.
+You can add simple Markdown (`.md`) or text (`.txt`) files to the `content/` folder and the home page will automatically list and let you preview them.
+
+Recommended workflow locally:
+
+1. Add files to `content/` (for example `content/my-note.md`).
+2. Run the manifest generator to update `content/index.json`:
+
+```bash
+node scripts/generate_index.js
+```
+
+This scans `content/` for `.md` and `.txt` files, extracts a title (first `# Heading` if present), a short excerpt, and the file's modification date, then writes `content/index.json` which the site consumes at runtime.
+
+On GitHub Pages: commit the new files including the updated `content/index.json`. The site (client-side) will fetch `content/index.json` and build the list and previews. If `content/index.json` is missing the site will show a friendly instruction message.
+
+Notes:
+
+- You can also edit `content/index.json` manually for custom titles, order, or excerpts.
+- The preview rendering uses a small client-side Markdown renderer (marked) loaded from a CDN.
 
 ## Structure
 
-- **thoughts**: Blog-style posts or ideas
-- **projects**: Completed work with brief descriptions
-- **future ideas**: Projects you want to build
-- **reading & watching**: Current books/shows/series
-- **resume**: Education, experience, skills
+- `index.html` — main site
+- `styles.css` — styling
+- `script.js` — page interactions (animations)
+- `content/` — put `.md` or `.txt` files here and generate `content/index.json`
+- `scripts/generate_index.js` — Node helper to create `content/index.json`
 
-## Style
+Additional pages:
 
-The site uses a minimal, text-focused design with:
-- System fonts for fast loading
-- Simple blue links
-- Clean spacing
-- Mobile-responsive layout
+- `list.html` — used to render a list of content items (optionally filtered by `?category=`).
+- `view.html` — full-page view for a single content file; pass `?file=content/your-file.md` to open it.
 
-Feel free to modify the CSS to match your preferences!
+Generator front-matter support
+
+If you add YAML front-matter at the top of your markdown files (between `---` markers), the generator will use keys like `title`, `date`, `category`, and `slug` when present. Example:
+
+```md
+---
+title: My Thought
+date: 2025-12-18
+category: thoughts
+slug: my-thought
+---
+
+# My Thought
+
+Content...
+```
+
+When you push changes to GitHub Pages include `content/index.json` (generated) so the site can list and link the files.
+
+## License & notes
+
+This is a minimal template. Feel free to adapt it for your needs.

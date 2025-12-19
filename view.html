@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>View content</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* small adjustments for article view */
+    .container { max-width: 800px; }
+    #article-meta { color: #666; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1 id="title">Loading…</h1>
+      <div id="article-meta"></div>
+    </header>
+
+    <article id="article-content">
+      <!-- rendered markdown goes here -->
+    </article>
+
+    <p><a href="javascript:history.back()">← back</a></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async function(){
+      const params = new URLSearchParams(location.search);
+      const file = params.get('file');
+      const titleEl = document.getElementById('title');
+      const metaEl = document.getElementById('article-meta');
+      const contentEl = document.getElementById('article-content');
+
+      if(!file){ titleEl.textContent = 'No file specified'; return; }
+
+      try{
+        const r = await fetch(file);
+        if(!r.ok) throw new Error('File not found');
+        const text = await r.text();
+
+        // try to extract a title from front-matter or first heading
+        let fmTitle = null;
+        const fmMatch = text.match(/^---\s*([\s\S]*?)---/);
+        if(fmMatch){
+          const fm = fmMatch[1];
+          const tMatch = fm.match(/title:\s*(.+)/i);
+          if(tMatch) fmTitle = tMatch[1].replace(/"/g,'').trim();
+        }
+
+        const firstHeading = text.match(/^#\s+(.+)$/m);
+        const useTitle = fmTitle || (firstHeading && firstHeading[1]) || file;
+        titleEl.textContent = useTitle;
+
+        // render markdown after stripping front-matter
+        const cleaned = text.replace(/^---[\s\S]*?---\s*/,'');
+        const html = (window.marked) ? marked.parse(cleaned) : ('<pre>' + cleaned + '</pre>');
+        contentEl.innerHTML = `<div class="md-content">${html}</div>`;
+
+        // show simple link to raw file and current URL
+        metaEl.innerHTML = `<a href="${file}" target="_blank">open raw</a>`;
+
+      }catch(err){
+        titleEl.textContent = 'Error loading content';
+        contentEl.innerHTML = '<p>Unable to load the requested file.</p>';
+        console.error(err);
+      }
+    })();
+  </script>
+</body>
+</html>

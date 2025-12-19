@@ -13,9 +13,14 @@
             <p class="subtitle">computational researcher & educator</p>
         </header>
 
-        <section class="intro">
+        <section class="about-me">
             <p>
-                [brief intro about yourself - a few sentences]
+                Hi, I'm Ishana.
+                An applied Natural Language Processing (NLP), High Performance Computing (HPC) developer, and researcher and learner in all thing Machine Learning and Data Science. 
+
+                I really enjoy building models, 
+
+                Recent grad from Virginia Tech with a B.S. in Computational Modeling and Data Analytics, with minors in Mathematics, Statistics, Computer Science, and Quantum Information Technology.
             </p>
             <p>
                 [what you're interested in / working on]
@@ -23,83 +28,31 @@
         </section>
 
         <nav class="main-nav">
-            <a href="#thoughts">thoughts</a>
-            <a href="#projects">projects</a>
-            <a href="#future-ideas">future ideas</a>
-            <a href="#reading">reading & watching</a>
-            <a href="#resume">resume</a>
+            <a href="index.html">home</a>
+            <a href="list.html?category=thoughts">thoughts</a>
+            <a href="list.html?category=projects">projects</a>
+            <a href="list.html?category=ideas">ideas</a>
+            <a href="resume.html">resume</a>
+            <a href="list.html">all content</a>
         </nav>
 
-        <section id="thoughts">
-            <h2>thoughts</h2>
-            <ul class="simple-list">
-                <li>
-                    <a href="#">[thought title]</a>
-                    <span class="date">Dec 2024</span>
-                </li>
-                <li>
-                    <a href="#">[thought title]</a>
-                    <span class="date">Nov 2024</span>
-                </li>
-                <li>
-                    <a href="#">[thought title]</a>
-                    <span class="date">Oct 2024</span>
-                </li>
-            </ul>
+        <section id="content-overview">
+            <h2>Recent content</h2>
+            <p>All site content is driven from files in the <code>content/</code> folder. Click a title to open the content on its own page.</p>
+
+            <div id="content-list">
+                <!-- populated by client-side script (same data source as list.html) -->
+            </div>
         </section>
 
-        <section id="projects">
-            <h2>projects</h2>
-            <ul class="simple-list">
-                <li>
-                    <a href="#">[project name]</a>
-                    <span class="description">— brief description</span>
-                </li>
-                <li>
-                    <a href="#">[project name]</a>
-                    <span class="description">— brief description</span>
-                </li>
-                <li>
-                    <a href="#">[project name]</a>
-                    <span class="description">— brief description</span>
-                </li>
-            </ul>
-        </section>
-
-        <section id="future-ideas">
-            <h2>future project ideas</h2>
-            <ul class="simple-list">
-                <li>[idea 1]</li>
-                <li>[idea 2]</li>
-                <li>[idea 3]</li>
-            </ul>
-        </section>
-
-        <section id="reading">
-            <h2>series i'm enjoying</h2>
-            
-            <h3>reading</h3>
-            <ul class="simple-list">
-                <li>
-                    <span class="title">[book/article title]</span>
-                    <span class="author">by [author]</span>
-                </li>
-                <li>
-                    <span class="title">[book/article title]</span>
-                    <span class="author">by [author]</span>
-                </li>
-            </ul>
-
-            <h3>watching</h3>
-            <ul class="simple-list">
-                <li>[show/series name]</li>
-                <li>[show/series name]</li>
-            </ul>
-        </section>
+        <!-- legacy single-file preview removed: per-site content is now available as separate pages (view.html) and lists (list.html) -->
 
         <section id="resume">
             <h2>resume</h2>
-            <p><a href="resume.pdf" class="resume-link">download pdf</a></p>
+            <p class="resume-links">
+                <a href="resume.html" class="resume-link">view full resume</a>
+                <a href="resume.pdf" class="resume-link secondary">↓ download pdf</a>
+            </p>
             
             <div class="resume-section">
                 <h3>education</h3>
@@ -111,33 +64,77 @@
             </div>
 
             <div class="resume-section">
-                <h3>experience</h3>
+                <h3>current role</h3>
                 <p>
-                    <strong>[Role]</strong> — [Organization]<br>
-                    <span class="date">[Dates]</span><br>
-                    [brief description]
-                </p>
-                <p>
-                    <strong>[Role]</strong> — [Organization]<br>
-                    <span class="date">[Dates]</span><br>
-                    [brief description]
+                    <strong>Research Assistant</strong> — Dr. Jason Wilson, Virginia Tech CMDA<br>
+                    <span class="date">Jan 2025 — Present</span><br>
+                    Developing GPU-accelerated data reduction methods (CUDA), achieving 8.5x speedup on NVIDIA V100
                 </p>
             </div>
 
             <div class="resume-section">
                 <h3>skills</h3>
-                <p>Python, R, C, CUDA, SQL, MATLAB, PyTorch, Machine Learning, NLP, Data Analysis</p>
+                <p>Python, C, CUDA, PyTorch, NLP, LLMs, Deep Learning, GPU Programming, HuggingFace, OpenMP</p>
             </div>
         </section>
 
         <footer>
             <div class="links">
-                <a href="mailto:your.email@vt.edu">email</a>
-                <a href="https://github.com/yourusername">github</a>
-                <a href="https://linkedin.com/in/yourprofile">linkedin</a>
+                <a href="mailto:ishana.rama@gmail.com">email</a>
+                <a href="https://github.com/ishana23g">github</a>
+                <a href="https://linkedin.com/in/ishana-garuda">linkedin</a>
             </div>
             <p class="copyright">© 2024</p>
         </footer>
     </main>
+    <!-- client-side content manifest loader. Uses marked (CDN) to render Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="" crossorigin="anonymous"></script>
+    <script>
+    (async function(){
+        const listContainer = document.getElementById('content-list');
+
+        try{
+            const res = await fetch('content/index.json');
+            if (!res.ok) throw new Error('manifest not found');
+            const items = await res.json();
+
+            if (!Array.isArray(items) || items.length === 0) {
+                listContainer.innerHTML = '<p>No content found in <code>content/index.json</code>.</p>';
+                return;
+            }
+
+            const ul = document.createElement('ul');
+            ul.className = 'simple-list';
+
+            items.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                // link to dedicated page for the item
+                a.href = `view.html?file=${encodeURIComponent(item.file)}`;
+                a.textContent = item.title || item.file;
+
+                li.appendChild(a);
+                if (item.date) {
+                    const span = document.createElement('span');
+                    span.className = 'date';
+                    span.textContent = ' ' + item.date;
+                    li.appendChild(span);
+                }
+                if (item.excerpt) {
+                    const p = document.createElement('div');
+                    p.className = 'description';
+                    p.textContent = item.excerpt;
+                    li.appendChild(p);
+                }
+                ul.appendChild(li);
+            });
+
+            listContainer.appendChild(ul);
+        } catch (err) {
+            listContainer.innerHTML = '<p><em>No content manifest found.</em> Create <code>content/index.json</code> (see README) or run the included generator script locally.</p>';
+            console.warn(err);
+        }
+    })();
+    </script>
 </body>
 </html>

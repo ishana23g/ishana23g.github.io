@@ -1,0 +1,10 @@
+[
+  {
+    "file": "content/example.md",
+    "title": "Example post",
+    "date": "2025-12-18",
+    "category": "uncategorized",
+    "slug": "example-post",
+    "excerpt": "This is a simple markdown file placed in the `content/` folder. Click the link in the \"content\" section of the homepage to preview this content."
+  }
+]

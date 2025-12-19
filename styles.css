@@ -144,6 +144,42 @@ h3 {
     font-weight: 600;
 }
 
+/* Resume Links */
+.resume-links {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.resume-link {
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #0066cc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.resume-link:hover {
+    background: #0066cc;
+    color: #fff;
+    text-decoration: none;
+}
+
+.resume-link.secondary {
+    border-color: #ccc;
+    color: #666;
+}
+
+.resume-link.secondary:hover {
+    background: #666;
+    color: #fff;
+    border-color: #666;
+}
+
 /* Footer */
 footer {
     margin-top: 80px;
@@ -189,4 +225,35 @@ footer {
         flex-direction: column;
         gap: 8px;
     }
+}
+
+/* Content listing and preview */
+#content-list {
+    margin-bottom: 24px;
+}
+
+#content-preview {
+    padding: 18px;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+.md-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.md-content pre {
+    background: #222;
+    color: #f8f8f2;
+    padding: 12px;
+    overflow: auto;
+    border-radius: 6px;
+}
+
+.md-content code {
+    background: #f3f3f3;
+    padding: 2px 6px;
+    border-radius: 4px;
 }
