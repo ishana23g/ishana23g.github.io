@@ -863,6 +863,21 @@ section:last-of-type {
     font-weight: 500;
 }
 
+.edu-details {
+    margin-top: 12px;
+}
+
+.edu-gpa-line {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.gpa-highlight {
+    color: var(--accent-purple-light);
+    font-weight: 600;
+}
+
 .edu-minors,
 .edu-courses {
     font-size: 14px;
@@ -985,27 +1000,40 @@ section:last-of-type {
     margin-bottom: 8px;
 }
 
+.edu-coursework {
+    margin-top: 12px;
+}
+
+.edu-coursework > strong {
+    color: var(--text-muted);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+}
+
 .coursework-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 6px 16px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px 20px;
 }
 
 .coursework-list li {
     font-size: 13px;
     color: var(--text-secondary);
     position: relative;
-    padding-left: 12px;
+    padding-left: 16px;
+    line-height: 1.5;
 }
 
 .coursework-list li::before {
-    content: "•";
+    content: "›";
     position: absolute;
     left: 0;
-    color: var(--accent-purple-dark);
+    color: var(--accent-purple-light);
+    font-weight: 600;
 }
 
 
