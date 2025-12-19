@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "music_embeddings",
+    "title": "Music Embeddings & Compression",
+    "file": "content/ideas/music_embeddings.md",
+    "excerpt": "Exploring how compression affects music embeddings, personalized discovery via few-shot learning, and visualizing millions of artists in embedding space."
+  },
+  {
+    "slug": "embedding_visualization",
+    "title": "High-Dimensional Embedding Visualization",
+    "file": "content/ideas/embedding_visualization.md",
+    "excerpt": "Interactive 2D visualization with epsilon distance slider, cell splitting concepts, and a novel approach to hypertunable data compression."
+  },
+  {
+    "slug": "memory_mapped_cache",
+    "title": "Memory-Mapped Settings Cache",
+    "file": "content/ideas/memory_mapped_cache.md",
+    "excerpt": "Using memory-mapped files in C for robust, crash-safe application settings that persist across sessions with low overhead."
+  },
+  {
+    "slug": "dim_reduction_comparison",
+    "title": "Dimensionality Reduction Comparison",
+    "file": "content/ideas/dim_reduction_comparison.md",
+    "excerpt": "Comparing UMAP, PCA, t-SNE on different modalities (text, video) with parameter search strategies for optimal dimension selection."
+  },
+  {
+    "slug": "motion_detection_frames",
+    "title": "Motion Detection & Information-Dense Frames",
+    "file": "content/ideas/motion_detection_frames.md",
+    "excerpt": "Finding the most interesting frames in video using motion detection, frame subtraction, and priority queues for key frame extraction."
+  }
+]

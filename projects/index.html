@@ -21,30 +21,8 @@
         </header>
 
         <section>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3><a href="../project/heat_eq/">3D Heat Equation Simulation</a></h3>
-                    <p class="tech">C • CUDA • OpenGL • Nsight</p>
-                    <p>GPU-accelerated real-time heat diffusion achieving 87% memory throughput and 98% GPU occupancy with CUDA-OpenGL interop for 60+ FPS volumetric rendering.</p>
-                </div>
-
-                <div class="project-card">
-                    <h3>Parameter Efficient LLM Fine-Tuning</h3>
-                    <p class="tech">PyTorch • PEFT • HuggingFace • OpenAI</p>
-                    <p>Prototyped Adaptive Sparse Fusion (ASF) framework to dynamically fuse LoRA and Prompt-Tuning for resource-constrained LLM fine-tuning. Evaluated on GLUE benchmarks.</p>
-                </div>
-
-                <div class="project-card">
-                    <h3>Named Entity Standardization</h3>
-                    <p class="tech">Python • Streamlit • OpenAI • RAG</p>
-                    <p>LLM-based standardization system using OpenAI API and RAG, deployed as Streamlit web app with semantic similarity search via vector embeddings.</p>
-                </div>
-
-                <div class="project-card">
-                    <h3><a href="https://github.com/ishana23g/qmlvcml">Quantum vs. Classical ML Package</a></h3>
-                    <p class="tech">Python • Qiskit • SVM • PyTest</p>
-                    <p>Modular Python package comparing Variational Quantum Classifiers and Classical SVMs with 20+ functions and 100% code coverage.</p>
-                </div>
+            <div id="projects-grid" class="projects-grid">
+                <p class="loading">Loading projects...</p>
             </div>
         </section>
 
@@ -54,8 +32,39 @@
                 <a href="https://github.com/ishana23g">github</a>
                 <a href="https://linkedin.com/in/ishana-garuda">linkedin</a>
             </div>
-            <p class="copyright">© 2024 Ishana Garuda</p>
+            <p class="copyright">© 2025 Ishana Garuda</p>
         </footer>
     </main>
+
+    <script>
+    (async function() {
+        const container = document.getElementById('projects-grid');
+        
+        try {
+            const res = await fetch('../content/projects.json');
+            if (!res.ok) throw new Error('Failed to load projects');
+            const projects = await res.json();
+            
+            if (!projects.length) {
+                container.innerHTML = '<p>No projects yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = projects.map(project => `
+                <a href="./${project.slug}/" class="project-card-link">
+                    <div class="project-card">
+                        <h3>${project.title}</h3>
+                        <p class="tech">${project.tech}</p>
+                        <p>${project.excerpt}</p>
+                    </div>
+                </a>
+            `).join('');
+            
+        } catch (err) {
+            container.innerHTML = '<p>Unable to load projects.</p>';
+            console.error(err);
+        }
+    })();
+    </script>
 </body>
 </html>

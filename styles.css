@@ -604,6 +604,13 @@ section:last-of-type {
     gap: 20px;
 }
 
+.project-card-link,
+.idea-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .project-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -620,6 +627,12 @@ section:last-of-type {
 .project-card h3 {
     margin-top: 0;
     margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.project-card-link:hover .project-card h3,
+.idea-card-link:hover .idea-card h3 {
+    color: var(--accent-purple-light);
 }
 
 .project-card h3 a {
@@ -959,6 +972,40 @@ section:last-of-type {
 
 .idea-card p:last-child {
     margin-bottom: 0;
+}
+
+/* Coursework List */
+.edu-coursework {
+    margin-top: 12px;
+}
+
+.edu-coursework strong {
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.coursework-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px 16px;
+}
+
+.coursework-list li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 12px;
+}
+
+.coursework-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-purple-dark);
 }
 
 

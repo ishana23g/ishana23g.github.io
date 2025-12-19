@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "heat_eq",
+    "title": "3D Heat Equation Simulation",
+    "tech": "C • CUDA • OpenGL • Nsight",
+    "course": "CMDA 4634",
+    "date": "Fall 2024",
+    "file": "content/projects/heat_eq.md",
+    "pdf": "content/media/CMDA4634FA24FinalProject_Garuda.pdf",
+    "github": "https://github.com/ishana23g/heat_eq",
+    "excerpt": "GPU-accelerated real-time heat diffusion achieving 87% memory throughput and 98% GPU occupancy with CUDA-OpenGL interop for 60+ FPS volumetric rendering.",
+    "highlights": [
+      "Optimized custom CUDA kernels for real-time 3D heat diffusion, achieving 87% memory throughput and 98% GPU occupancy",
+      "Implemented CUDA-OpenGL interop for real-time volumetric rendering at 60+ FPS",
+      "Profiled using Nsight Compute/Systems to eliminate bottlenecks and maximize parallel efficiency"
+    ]
+  },
+  {
+    "slug": "llm_finetuning",
+    "title": "Parameter Efficient LLM Fine-Tuning",
+    "tech": "PyTorch • PEFT • HuggingFace • OpenAI",
+    "course": "CS 4824",
+    "file": "content/projects/llm_finetuning.md",
+    "excerpt": "Prototyped Adaptive Sparse Fusion (ASF) framework to dynamically fuse LoRA and Prompt-Tuning for resource-constrained LLM fine-tuning.",
+    "highlights": [
+      "Prototyped Adaptive Sparse Fusion (ASF) framework using PyTorch/Hugging Face to dynamically fuse LoRA and Prompt-Tuning",
+      "Conducted comparative analysis on GLUE benchmarks (MRPC, SST-2) evaluating efficiency-accuracy trade-offs",
+      "Integrated mixed-precision training (FP16) and explored Soft-MoE and Expert-Choice routing"
+    ]
+  },
+  {
+    "slug": "named_entity",
+    "title": "Named Entity Standardization",
+    "tech": "Python • Streamlit • OpenAI • RAG • Plotly",
+    "course": "Capstone",
+    "file": "content/projects/named_entity.md",
+    "excerpt": "LLM-based standardization system using OpenAI API and RAG, deployed as Streamlit web app with semantic similarity search.",
+    "highlights": [
+      "Led development of LLM-based standardization system using OpenAI API and RAG, deployed as Streamlit web app",
+      "Built NLP pipeline with data cleaning, semantic similarity search via vector embeddings, and interactive visualizations",
+      "Presented live demo to faculty and student panel, communicating technical implementation to non-technical stakeholders"
+    ]
+  },
+  {
+    "slug": "qmlvcml",
+    "title": "Quantum vs. Classical ML Package",
+    "tech": "Python • OOP • PyTest • Qiskit • SVM",
+    "course": "PHYS 4684",
+    "file": "content/projects/qmlvcml.md",
+    "github": "https://github.com/ishana23g/qmlvcml",
+    "excerpt": "Modular Python package comparing Variational Quantum Classifiers and Classical SVMs with 20+ functions and 100% code coverage.",
+    "highlights": [
+      "Engineered a modular Python package comparing Variational Quantum Classifiers and Classical SVMs with 20+ functions",
+      "Achieved 100% code coverage across all class methods with comprehensive test suites and detailed technical documentation"
+    ]
+  }
+]

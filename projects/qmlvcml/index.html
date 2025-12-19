@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project — Ishana Garuda</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <main class="container article-container">
+        <nav class="main-nav">
+            <a href="../../">home</a>
+            <a href="../">projects</a>
+            <a href="../../ideas/">ideas</a>
+            <a href="../../resume/">resume</a>
+        </nav>
+
+        <article class="project-article">
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-tag">Project</span>
+                    <span id="course-tag" class="course-tag"></span>
+                </div>
+                <h1 id="project-title">Loading...</h1>
+                <p id="project-subtitle" class="article-subtitle"></p>
+                <div class="article-info">
+                    <span id="project-date" class="date"></span>
+                    <span id="project-tech" class="tech-stack"></span>
+                </div>
+            </header>
+
+            <section class="article-summary">
+                <h2>Overview</h2>
+                <ul id="highlights-list" class="highlights"></ul>
+                <div id="project-links" class="project-links"></div>
+            </section>
+
+            <section id="pdf-section" class="article-content" style="display: none;">
+                <h2>Report</h2>
+                <p class="pdf-intro">The complete project report with detailed implementation and analysis.</p>
+                
+                <div class="pdf-viewer">
+                    <iframe id="pdf-frame" title="Project Report" frameborder="0">
+                        <p>Your browser does not support embedded PDFs.</p>
+                    </iframe>
+                </div>
+            </section>
+
+            <section id="markdown-section" class="article-content" style="display: none;">
+                <div id="markdown-content" class="md-content"></div>
+            </section>
+        </article>
+
+        <footer>
+            <div class="footer-nav">
+                <a href="../">← Back to Projects</a>
+            </div>
+            <div class="links">
+                <a href="mailto:ishana.rama@gmail.com">email</a>
+                <a href="https://github.com/ishana23g">github</a>
+                <a href="https://linkedin.com/in/ishana-garuda">linkedin</a>
+            </div>
+            <p class="copyright">© 2025 Ishana Garuda</p>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    (async function() {
+        // Get project slug from URL path
+        const pathParts = window.location.pathname.split('/').filter(p => p);
+        const slug = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        
+        try {
+            const res = await fetch('../../content/projects.json');
+            if (!res.ok) throw new Error('Failed to load projects');
+            const projects = await res.json();
+            
+            const project = projects.find(p => p.slug === slug);
+            if (!project) {
+                document.getElementById('project-title').textContent = 'Project not found';
+                return;
+            }
+            
+            // Update page content
+            document.title = `${project.title} — Ishana Garuda`;
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-subtitle').textContent = project.excerpt;
+            document.getElementById('course-tag').textContent = project.course || '';
+            document.getElementById('project-date').textContent = project.date || '';
+            document.getElementById('project-tech').textContent = project.tech;
+            
+            // Highlights
+            const highlightsList = document.getElementById('highlights-list');
+            if (project.highlights && project.highlights.length) {
+                highlightsList.innerHTML = project.highlights.map(h => `<li>${h}</li>`).join('');
+            }
+            
+            // Links
+            const linksDiv = document.getElementById('project-links');
+            let linksHtml = '';
+            if (project.github) {
+                linksHtml += `<a href="${project.github}" class="btn btn-primary">View on GitHub</a> `;
+            }
+            linksDiv.innerHTML = linksHtml;
+            
+            // PDF
+            if (project.pdf) {
+                document.getElementById('pdf-section').style.display = 'block';
+                document.getElementById('pdf-frame').src = '../../' + project.pdf;
+            }
+            
+            // Markdown content
+            if (project.file) {
+                try {
+                    const mdRes = await fetch('../../' + project.file);
+                    if (mdRes.ok) {
+                        const mdText = await mdRes.text();
+                        // Remove frontmatter and first heading (already shown as title)
+                        const cleaned = mdText.replace(/^---[\s\S]*?---\s*/, '').replace(/^#\s+.+\n/, '');
+                        if (cleaned.trim()) {
+                            document.getElementById('markdown-section').style.display = 'block';
+                            document.getElementById('markdown-content').innerHTML = marked.parse(cleaned);
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Could not load markdown:', e);
+                }
+            }
+            
+        } catch (err) {
+            document.getElementById('project-title').textContent = 'Error loading project';
+            console.error(err);
+        }
+    })();
+    </script>
+</body>
+</html>

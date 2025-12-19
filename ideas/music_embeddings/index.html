@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea — Ishana Garuda</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <main class="container article-container">
+        <nav class="main-nav">
+            <a href="../../">home</a>
+            <a href="../../projects/">projects</a>
+            <a href="../">ideas</a>
+            <a href="../../resume/">resume</a>
+        </nav>
+
+        <article class="idea-article">
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-tag">Idea</span>
+                </div>
+                <h1 id="idea-title">Loading...</h1>
+                <p id="idea-subtitle" class="article-subtitle"></p>
+            </header>
+
+            <section class="article-content">
+                <div id="markdown-content" class="md-content"></div>
+            </section>
+        </article>
+
+        <footer>
+            <div class="footer-nav">
+                <a href="../">← Back to Ideas</a>
+            </div>
+            <div class="links">
+                <a href="mailto:ishana.rama@gmail.com">email</a>
+                <a href="https://github.com/ishana23g">github</a>
+                <a href="https://linkedin.com/in/ishana-garuda">linkedin</a>
+            </div>
+            <p class="copyright">© 2025 Ishana Garuda</p>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    (async function() {
+        // Get idea slug from URL path
+        const pathParts = window.location.pathname.split('/').filter(p => p);
+        const slug = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        
+        try {
+            const res = await fetch('../../content/ideas.json');
+            if (!res.ok) throw new Error('Failed to load ideas');
+            const ideas = await res.json();
+            
+            const idea = ideas.find(i => i.slug === slug);
+            if (!idea) {
+                document.getElementById('idea-title').textContent = 'Idea not found';
+                return;
+            }
+            
+            // Update page content
+            document.title = `${idea.title} — Ishana Garuda`;
+            document.getElementById('idea-title').textContent = idea.title;
+            document.getElementById('idea-subtitle').textContent = idea.excerpt;
+            
+            // Load markdown content
+            if (idea.file) {
+                const mdRes = await fetch('../../' + idea.file);
+                if (mdRes.ok) {
+                    const mdText = await mdRes.text();
+                    // Remove frontmatter and first heading (already shown as title)
+                    const cleaned = mdText.replace(/^---[\s\S]*?---\s*/, '').replace(/^#\s+.+\n/, '');
+                    document.getElementById('markdown-content').innerHTML = marked.parse(cleaned);
+                }
+            }
+            
+        } catch (err) {
+            document.getElementById('idea-title').textContent = 'Error loading idea';
+            console.error(err);
+        }
+    })();
+    </script>
+</body>
+</html>

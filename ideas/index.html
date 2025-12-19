@@ -17,16 +17,12 @@
 
         <header>
             <h1>Ideas</h1>
-            <p class="subtitle">Thoughts, explorations, and things I'm curious about</p>
+            <p class="subtitle">Thoughts, explorations, and things I'm curious about. Probably some of these projects exist, but even the process of redoing it and seeing myself I am interested in these topics is valuable.</p>
         </header>
 
         <section>
-            <div class="ideas-list">
-                <article class="idea-card">
-                    <h3>Music Similarity Search</h3>
-                    <p>We can think about the wave function of songs and try and extract the frequency information from them to decompose songs and see how similar they are to other songs.</p>
-                    <p>It would be cool to see and map a different way in which we can find new similar songs to what we like.</p>
-                </article>
+            <div id="ideas-list" class="ideas-list">
+                <p class="loading">Loading ideas...</p>
             </div>
         </section>
 
@@ -36,8 +32,38 @@
                 <a href="https://github.com/ishana23g">github</a>
                 <a href="https://linkedin.com/in/ishana-garuda">linkedin</a>
             </div>
-            <p class="copyright">© 2024 Ishana Garuda</p>
+            <p class="copyright">© 2025 Ishana Garuda</p>
         </footer>
     </main>
+
+    <script>
+    (async function() {
+        const container = document.getElementById('ideas-list');
+        
+        try {
+            const res = await fetch('../content/ideas.json');
+            if (!res.ok) throw new Error('Failed to load ideas');
+            const ideas = await res.json();
+            
+            if (!ideas.length) {
+                container.innerHTML = '<p>No ideas yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = ideas.map(idea => `
+                <a href="./${idea.slug}/" class="idea-card-link">
+                    <article class="idea-card">
+                        <h3>${idea.title}</h3>
+                        <p>${idea.excerpt}</p>
+                    </article>
+                </a>
+            `).join('');
+            
+        } catch (err) {
+            container.innerHTML = '<p>Unable to load ideas.</p>';
+            console.error(err);
+        }
+    })();
+    </script>
 </body>
 </html>
