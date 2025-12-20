@@ -20,6 +20,10 @@
             <p class="subtitle">Research, coursework, and personal projects</p>
         </header>
 
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search projects by title, tech stack, or keywords..." aria-label="Search projects">
+        </div>
+
         <section>
             <div id="projects-grid" class="projects-grid">
                 <p class="loading">Loading projects...</p>
@@ -39,17 +43,15 @@
     <script>
     (async function() {
         const container = document.getElementById('projects-grid');
-        
-        try {
-            const res = await fetch('../content/projects.json');
-            if (!res.ok) throw new Error('Failed to load projects');
-            const projects = await res.json();
-            
+        const searchInput = document.getElementById('search-input');
+        let allProjects = [];
+
+        function renderProjects(projects) {
             if (!projects.length) {
-                container.innerHTML = '<p>No projects yet.</p>';
+                container.innerHTML = '<p class="no-results">No projects match your search.</p>';
                 return;
             }
-            
+
             container.innerHTML = projects.map(project => `
                 <a href="./${project.slug}/" class="project-card-link">
                     <div class="project-card">
@@ -59,9 +61,51 @@
                     </div>
                 </a>
             `).join('');
-            
+        }
+
+        function filterProjects(searchTerm) {
+            const term = searchTerm.toLowerCase().trim();
+
+            if (!term) {
+                renderProjects(allProjects);
+                return;
+            }
+
+            const filtered = allProjects.filter(project => {
+                const searchableText = [
+                    project.title,
+                    project.tech,
+                    project.excerpt,
+                    project.course || ''
+                ].join(' ').toLowerCase();
+
+                return searchableText.includes(term);
+            });
+
+            renderProjects(filtered);
+        }
+
+        try {
+            const res = await fetch('../content/projects.json');
+            if (!res.ok) throw new Error('Failed to load projects');
+            allProjects = await res.json();
+
+            if (!allProjects.length) {
+                container.innerHTML = '<p>No projects yet.</p>';
+                searchInput.disabled = true;
+                return;
+            }
+
+            renderProjects(allProjects);
+
+            // Add search event listener
+            searchInput.addEventListener('input', (e) => {
+                filterProjects(e.target.value);
+            });
+
         } catch (err) {
             container.innerHTML = '<p>Unable to load projects.</p>';
+            searchInput.disabled = true;
             console.error(err);
         }
     })();

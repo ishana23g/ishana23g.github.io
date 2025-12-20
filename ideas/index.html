@@ -20,6 +20,10 @@
             <p class="subtitle">Thoughts, explorations, and things I'm curious about. Probably some of these projects exist, but even the process of redoing it and seeing myself I am interested in these topics is valuable.</p>
         </header>
 
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search ideas by title or keywords..." aria-label="Search ideas">
+        </div>
+
         <section>
             <div id="ideas-list" class="ideas-list">
                 <p class="loading">Loading ideas...</p>
@@ -39,17 +43,15 @@
     <script>
     (async function() {
         const container = document.getElementById('ideas-list');
-        
-        try {
-            const res = await fetch('../content/ideas.json');
-            if (!res.ok) throw new Error('Failed to load ideas');
-            const ideas = await res.json();
-            
+        const searchInput = document.getElementById('search-input');
+        let allIdeas = [];
+
+        function renderIdeas(ideas) {
             if (!ideas.length) {
-                container.innerHTML = '<p>No ideas yet.</p>';
+                container.innerHTML = '<p class="no-results">No ideas match your search.</p>';
                 return;
             }
-            
+
             container.innerHTML = ideas.map(idea => `
                 <a href="./${idea.slug}/" class="idea-card-link">
                     <article class="idea-card">
@@ -58,9 +60,49 @@
                     </article>
                 </a>
             `).join('');
-            
+        }
+
+        function filterIdeas(searchTerm) {
+            const term = searchTerm.toLowerCase().trim();
+
+            if (!term) {
+                renderIdeas(allIdeas);
+                return;
+            }
+
+            const filtered = allIdeas.filter(idea => {
+                const searchableText = [
+                    idea.title,
+                    idea.excerpt
+                ].join(' ').toLowerCase();
+
+                return searchableText.includes(term);
+            });
+
+            renderIdeas(filtered);
+        }
+
+        try {
+            const res = await fetch('../content/ideas.json');
+            if (!res.ok) throw new Error('Failed to load ideas');
+            allIdeas = await res.json();
+
+            if (!allIdeas.length) {
+                container.innerHTML = '<p>No ideas yet.</p>';
+                searchInput.disabled = true;
+                return;
+            }
+
+            renderIdeas(allIdeas);
+
+            // Add search event listener
+            searchInput.addEventListener('input', (e) => {
+                filterIdeas(e.target.value);
+            });
+
         } catch (err) {
             container.innerHTML = '<p>Unable to load ideas.</p>';
+            searchInput.disabled = true;
             console.error(err);
         }
     })();
