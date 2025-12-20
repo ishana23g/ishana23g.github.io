@@ -1069,7 +1069,7 @@ section:last-of-type {
 }
 
 .coursework-list li::before {
-    content: "›";
+    content: "•";
     position: absolute;
     left: 0;
     color: var(--accent-purple-light);
